@@ -1,0 +1,16 @@
+{
+    "name": "debelserarne/elementor-custom-popup",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Debelserarne\\ElementorCustomPopup\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Arne De Belser",
+            "email": "debelserarne@gmail.com"
+        }
+    ],
+    "require": {}
+}
