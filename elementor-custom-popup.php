@@ -38,12 +38,6 @@ class ElementorCustomPopup
             // Enqueue the 'popup-display.js' script with dependencies and version
             wp_enqueue_script('popup-display', plugin_dir_url(__FILE__) . 'assets/js/popup-display.js', ['jquery'], '1.0', true);
             wp_enqueue_script('replace-svg', plugin_dir_url(__FILE__) . 'assets/js/replace-svg.js', ['jquery'], '1.0', true);
-
-            // Assuming your JS file is also in the plugin directory
-            // Use the wp_localize_script function to pass the plugin directory path to your JS
-            wp_localize_script('your-js-handle', 'pluginData', [
-                'pluginDirectory' => plugin_dir_url(__FILE__),
-            ]);
         }
     }
 }

@@ -25,7 +25,11 @@ jQuery(document).on('elementor/popup/show', (event, id, instance) => {
             console.log(response);
 
             // Check if the current language is in the active languages of the popup timing
-            if ('active_languages' in response.meta.timing && response.meta.timing.active_languages.includes(response.current_lang)) {
+            if (
+                ('active_languages' in response.meta.timing && response.meta.timing.active_languages.includes(response.current_lang))
+                ||
+                (response.meta && !response.meta.timing.hasOwnProperty("polylang"))
+            ) {
                 // Show the popup modal with the specified ID
                 jQuery('#elementor-popup-modal-' + id).show();
             }

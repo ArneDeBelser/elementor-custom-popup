@@ -32,13 +32,16 @@ class PolyLangTriggerControls
 
         // Retrieve default languages
         $default_languages = pll_languages_list();
-        $popup_display_settings = get_post_meta(get_the_ID(), '_elementor_popup_display_settings');
+        // Get the current popup display settings
+        $popup_display_settings = end(get_post_meta(get_the_ID(), '_elementor_popup_display_settings'));
+        // Create empty array to store chosen languages
         $chosen_languages = [];
 
         // Check if there are timing settings for the popup
-        if (isset($popup_display_settings['timing']) && is_array($popup_display_settings['timing'])) {
-            // Set chosen languages based on popup settings
-            $chosen_languages = isset($popup_display_settings['timing']['active_languages']) ? $popup_display_settings['timing']['active_languages'] : [];
+        if (
+            $popup_display_settings['timing'] !== null
+        ) {
+            !array_key_exists('active_languages', $popup_display_settings['timing']) ? $chosen_languages = $popup_display_settings['timing']['active_languages'] : null;
         }
 
         // If chosen languages are empty, use default languages
